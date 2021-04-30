@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-interface Translate {
+interface TranslateProps {
     id: React.ComponentProps<typeof FormattedMessage>['id'];
     value?: React.ComponentProps<typeof FormattedMessage>['values'];
 }
 
-export const translate = ({ id, value = {} }: Translate) => (
+export const Translate: React.FC<TranslateProps>= ({ id, value = {} }: TranslateProps) => (
     <FormattedMessage id={id} values={{ ...value }} />
 );
