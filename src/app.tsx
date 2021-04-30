@@ -2,13 +2,13 @@ import * as React from 'react';
 import ReactDOM from 'react-dom';
 
 import { FormattedMessage } from 'react-intl';
-import { I18nPropvider, LOCALES } from './i18nProvider';
+import { I18nPropvider, LOCALES, Language } from './i18nProvider';
 import { translate } from './i18nProvider/translate';
 
 import './app.css';
 
 const App = (): React.ReactElement => {
-    const [locale, setLocale] = React.useState(LOCALES.ENGLISH);
+    const [locale, setLocale] = React.useState<Language>(LOCALES.ENGLISH);
 
     return (
         <I18nPropvider locale={locale}>
@@ -21,10 +21,17 @@ const App = (): React.ReactElement => {
                         {translate({
                             id: 'edit-file',
                             value: {
-                                file: <code>src/App.js</code>,
+                                file: <code>src/app.tsx</code>,
                             },
                         })}
                     </p>
+
+                    <FormattedMessage
+                        id="placeholder"
+                        defaultMessage="search"
+                    >
+                        {(placeholder) => <input placeholder={placeholder} />}
+                    </FormattedMessage>
 
                     <button onClick={() => setLocale(LOCALES.ENGLISH)}>
                         English

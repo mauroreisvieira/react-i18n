@@ -1,2 +1,2 @@
 export { default as I18nPropvider } from './Provider';
-export { LOCALES } from './constants';
+export { LOCALES, Language } from './constants';
